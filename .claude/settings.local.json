@@ -23,7 +23,9 @@
       "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" \"https://resume-60wv2uqxa-changfan-lis-projects.vercel.app/resume/452d5415e3\")",
       "Bash(curl -s -o /dev/null -w \"preview=%{http_code} \" \"https://resume-ff5t4u5sn-changfan-lis-projects.vercel.app/resume/29211c7e85\")",
       "Bash(curl -s \"https://resume-eight-tan-42.vercel.app/resume/29211c7e85\")",
-      "Bash(npm_config_cache=/tmp/npm-cache npm install @anthropic-ai/sdk)"
+      "Bash(npm_config_cache=/tmp/npm-cache npm install @anthropic-ai/sdk)",
+      "Bash(curl -s \"https://resume-eight-tan-42.vercel.app/editor?template=modern\")",
+      "Bash(curl -s -o /dev/null -w \"api-status=%{http_code}\\\\n\" -X POST -H \"Content-Type: application/json\" -d '{\"text\":\"test\",\"context\":\"bio\"}' \"https://resume-eight-tan-42.vercel.app/api/polish\")"
     ],
     "additionalDirectories": [
       "/Users/lichangfan/Desktop/cs-test/hooks"
