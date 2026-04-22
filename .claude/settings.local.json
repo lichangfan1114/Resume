@@ -18,7 +18,12 @@
       "Bash(curl -s -o /dev/null -w \"professional=%{http_code}\\\\n\" \"http://localhost:3000/editor?template=professional\")",
       "Bash(curl -s \"http://localhost:3000/editor?template=minimalist\")",
       "Bash(curl -s \"http://localhost:3000/templates\")",
-      "Bash(npm_config_cache=/tmp/npm-cache npm install @supabase/supabase-js)"
+      "Bash(npm_config_cache=/tmp/npm-cache npm install @supabase/supabase-js)",
+      "Bash(curl -s \"https://resume-eight-tan-42.vercel.app/resume/29e174e4ee\")",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" \"https://resume-60wv2uqxa-changfan-lis-projects.vercel.app/resume/452d5415e3\")",
+      "Bash(curl -s -o /dev/null -w \"preview=%{http_code} \" \"https://resume-ff5t4u5sn-changfan-lis-projects.vercel.app/resume/29211c7e85\")",
+      "Bash(curl -s \"https://resume-eight-tan-42.vercel.app/resume/29211c7e85\")",
+      "Bash(npm_config_cache=/tmp/npm-cache npm install @anthropic-ai/sdk)"
     ],
     "additionalDirectories": [
       "/Users/lichangfan/Desktop/cs-test/hooks"

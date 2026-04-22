@@ -2,6 +2,7 @@
 
 import { useResumeData } from "@/hooks/useResumeData";
 import MonthYearInput from "./MonthYearInput";
+import PolishableTextarea from "./PolishableTextarea";
 import { EmptyListHint, Field, ItemCard, SectionShell, inputClass } from "./ui";
 
 export default function ExperienceSection() {
@@ -59,9 +60,10 @@ export default function ExperienceSection() {
             </div>
 
             <Field label="工作描述" hint="量化的成果最有说服力">
-              <textarea
+              <PolishableTextarea
                 value={item.description}
-                onChange={(e) => updateExperience(item.id, { description: e.target.value })}
+                onChange={(v) => updateExperience(item.id, { description: v })}
+                context="experience"
                 placeholder="列出主要职责与关键成果..."
                 rows={3}
                 className={`${inputClass} resize-none`}

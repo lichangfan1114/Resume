@@ -2,6 +2,7 @@
 
 import { useResumeData } from "@/hooks/useResumeData";
 import MonthYearInput from "./MonthYearInput";
+import PolishableTextarea from "./PolishableTextarea";
 import { EmptyListHint, Field, ItemCard, SectionShell, inputClass } from "./ui";
 
 export default function ProjectsSection() {
@@ -59,9 +60,10 @@ export default function ProjectsSection() {
             </div>
 
             <Field label="项目描述" hint="突出贡献和成果">
-              <textarea
+              <PolishableTextarea
                 value={item.description}
-                onChange={(e) => updateProject(item.id, { description: e.target.value })}
+                onChange={(v) => updateProject(item.id, { description: v })}
+                context="project"
                 placeholder="简述项目目标、你的角色与可量化的结果..."
                 rows={3}
                 className={`${inputClass} resize-none`}

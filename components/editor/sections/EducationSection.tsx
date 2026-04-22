@@ -2,6 +2,7 @@
 
 import { useResumeData } from "@/hooks/useResumeData";
 import MonthYearInput from "./MonthYearInput";
+import PolishableTextarea from "./PolishableTextarea";
 import { EmptyListHint, Field, ItemCard, SectionShell, inputClass } from "./ui";
 
 export default function EducationSection() {
@@ -59,9 +60,10 @@ export default function EducationSection() {
             </div>
 
             <Field label="补充说明" hint="可选">
-              <textarea
+              <PolishableTextarea
                 value={item.description}
-                onChange={(e) => updateEducation(item.id, { description: e.target.value })}
+                onChange={(v) => updateEducation(item.id, { description: v })}
+                context="education"
                 placeholder="奖项、GPA、研究方向等..."
                 rows={2}
                 className={`${inputClass} resize-none`}

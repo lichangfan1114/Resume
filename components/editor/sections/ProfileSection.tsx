@@ -6,6 +6,7 @@ import { useResumeData } from "@/hooks/useResumeData";
 import { compressImage } from "@/lib/image";
 import type { AvatarShape } from "@/lib/schema";
 import DefaultAvatar from "@/components/templates/modern/DefaultAvatar";
+import PolishableTextarea from "./PolishableTextarea";
 import { Field, SectionShell, inputClass } from "./ui";
 
 export default function ProfileSection() {
@@ -62,9 +63,10 @@ export default function ProfileSection() {
       </Field>
 
       <Field label="一句话介绍" hint="建议 2 到 3 行内">
-        <textarea
+        <PolishableTextarea
           value={profile.bio}
-          onChange={(e) => updateProfile({ bio: e.target.value })}
+          onChange={(v) => updateProfile({ bio: v })}
+          context="bio"
           placeholder="在这里写一段关于你的简介..."
           rows={3}
           className={`${inputClass} resize-none`}
