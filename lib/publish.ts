@@ -39,23 +39,27 @@ export async function publishResume(data: ResumeData): Promise<PublishResult> {
 export async function getPublishedResume(
   id: string,
 ): Promise<ResumeData | null> {
-  if (typeof window === "undefined") return null;
-
+  // Supabase 路径，服务端 / 客户端都可用
   if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from(TABLE)
-      .select("data")
-      .eq("id", id)
-      .maybeSingle();
-    if (error) {
-      console.error("[publish] supabase fetch failed:", error);
-      // 网络/权限问题时仍尝试从本地兜底读取
-      return loadLocal(id);
+    try {
+      const { data, error } = await supabase
+        .from(TABLE)
+        .select("data")
+        .eq("id", id)
+        .maybeSingle();
+      if (error) {
+        console.error("[publish] supabase fetch failed:", error);
+      } else if (data) {
+        return (data as { data: ResumeData }).data ?? null;
+      }
+    } catch (err) {
+      console.error("[publish] supabase fetch threw:", err);
     }
-    if (!data) return loadLocal(id);
-    return (data as { data: ResumeData }).data ?? null;
+    // Fall through: 客户端再尝试 localStorage 兜底
   }
 
+  // localStorage 仅客户端可用
+  if (typeof window === "undefined") return null;
   return loadLocal(id);
 }
 
